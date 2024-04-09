@@ -1,5 +1,4 @@
-from should import should
-from ex16 import inserir_ordenado, remover_elemento, exibir_lista
+from lista1.testes.ex16 import inserir_ordenado, remover_elemento, exibir_lista
 
 def test_inserir_ordenado():
     lista = [1, 3, 5]
@@ -15,7 +14,6 @@ def test_exibir_lista():
     # A função exibir_lista imprime a lista, então você precisa capturar a saída para testar.
     # Isso pode ser feito usando o módulo 'io' para redirecionar a saída padrão para um buffer.
     import io
-    import sys
     from contextlib import redirect_stdout
 
     lista = [1, 2, 3]
