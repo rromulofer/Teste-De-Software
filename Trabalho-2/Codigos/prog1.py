@@ -1,72 +1,47 @@
-class LojaOnline:
+class SistemaDeCompra:
     def __init__(self):
-        self.estado = Pesquisando()
-
-    def novo_acesso(self):
-        self.estado = Pesquisando()
+        self.estado_atual = 'novo acesso'
 
     def pesquisar_produtos(self):
-        self.estado.pesquisar_produtos()
+        if self.estado_atual == 'novo acesso':
+            self.estado_atual = 'pesquisando'
+            return self.estado_atual
+        else:
+            return 'Ação não permitida no estado atual.'
 
     def selecionar_produtos(self):
-        self.estado.selecionar_produtos()
+        if self.estado_atual == 'pesquisando':
+            self.estado_atual = 'carrinho ativo'
+            return self.estado_atual
+        else:
+            return 'Ação não permitida no estado atual.'
 
     def remover_produtos(self):
-        self.estado.remover_produtos()
+        if self.estado_atual == 'carrinho ativo':
+            self.estado_atual = 'pesquisando'
+            return self.estado_atual
+        else:
+            return 'Ação não permitida no estado atual.'
 
     def selecionar_forma_pagamento(self):
-        self.estado.selecionar_forma_pagamento()
+        self.estado_atual = 'carrinho ativo'
+        if self.estado_atual == 'carrinho ativo':
+            self.estado_atual = 'pagamento confirmado'
+            return self.estado_atual
+        else:
+            return 'Ação não permitida no estado atual.'
 
     def confirmar_dados_entrega(self):
-        self.estado.confirmar_dados_entrega()
+        if self.estado_atual == 'pagamento confirmado':
+            self.estado_atual = 'compra finalizada'
+            return self.estado_atual
+        else:
+            return 'Ação não permitida no estado atual.'
 
-
-class Estado:
-    def pesquisar_produtos(self):
-        pass
-
-    def selecionar_produtos(self):
-        pass
-
-    def remover_produtos(self):
-        pass
-
-    def selecionar_forma_pagamento(self):
-        pass
-
-    def confirmar_dados_entrega(self):
-        pass
-
-
-class Pesquisando(Estado):
-    def pesquisar_produtos(self):
-        print("Pesquisando produtos...")
-        # Lógica para pesquisar produtos
-        return CarrinhoAtivo()
-
-
-class CarrinhoAtivo(Estado):
-    def selecionar_produtos(self):
-        print("Produtos selecionados.")
-        # Lógica para selecionar produtos
-
-    def remover_produtos(self):
-        print("Removendo produtos do carrinho...")
-        # Lógica para remover produtos
-        return Pesquisando()
-
-    def selecionar_forma_pagamento(self):
-        print("Forma de pagamento selecionada.")
-        # Lógica para selecionar forma de pagamento
-        return PagamentoConfirmado()
-
-
-class PagamentoConfirmado(Estado):
-    def confirmar_dados_entrega(self):
-        print("Dados de entrega confirmados.")
-        # Lógica para confirmar dados de entrega
-        return CompraFinalizada()
-
-
-class CompraFinalizada(Estado):
-    pass
+# Exemplo de uso
+sistema = SistemaDeCompra()
+print(sistema.pesquisar_produtos()) # Deve retornar 'pesquisando'
+print(sistema.selecionar_produtos()) # Deve retornar 'carrinho ativo'
+print(sistema.remover_produtos()) # Deve retornar 'pesquisando'
+print(sistema.selecionar_forma_pagamento()) # Deve retornar 'pagamento confirmado'
+print(sistema.confirmar_dados_entrega()) # Deve retornar 'compra finalizada'
