@@ -1,4 +1,4 @@
-class ListaOrdenada:
+3class ListaOrdenada:
     def __init__(self):
         self.lista_ordenada = []
 
