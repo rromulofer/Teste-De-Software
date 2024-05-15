@@ -38,10 +38,9 @@ class SistemaDeCompra:
         else:
             return 'Ação não permitida no estado atual.'
 
-# Exemplo de uso
 sistema = SistemaDeCompra()
-print(sistema.pesquisar_produtos()) # Deve retornar 'pesquisando'
-print(sistema.selecionar_produtos()) # Deve retornar 'carrinho ativo'
-print(sistema.remover_produtos()) # Deve retornar 'pesquisando'
-print(sistema.selecionar_forma_pagamento()) # Deve retornar 'pagamento confirmado'
-print(sistema.confirmar_dados_entrega()) # Deve retornar 'compra finalizada'
+print(sistema.pesquisar_produtos())
+print(sistema.selecionar_produtos())
+print(sistema.remover_produtos())
+print(sistema.selecionar_forma_pagamento())
+print(sistema.confirmar_dados_entrega())
