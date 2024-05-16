@@ -1,3 +1,9 @@
+#  Prof. Antonio Eduardo Carvalho
+#  Disciplina : Teste de Software
+#  UENF-CCT-LCMAT-CC
+#  Data: 16 de Maio de 2024
+#  Aluno: Rômulo Souza Fernandes
+
 from unittest import TestCase, main
 from should_dsl import should
 from prog1 import SistemaDeCompra

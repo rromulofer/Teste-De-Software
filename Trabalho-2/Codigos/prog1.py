@@ -1,3 +1,9 @@
+#  Prof. Antonio Eduardo Carvalho
+#  Disciplina : Teste de Software
+#  UENF-CCT-LCMAT-CC
+#  Data: 16 de Maio de 2024
+#  Aluno: Rômulo Souza Fernandes
+
 class SistemaDeCompra:
     def __init__(self):
         self.estado_atual = 'novo acesso'
